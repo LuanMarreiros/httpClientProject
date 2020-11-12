@@ -25,7 +25,7 @@ export class RestApiService {
     return this.http.get<Employee>(this.url + '/employees')
     .pipe(
       retry(1),
-      catchError(this.handleError)
+      // catchError(this.handleError)
     )
   }
 
