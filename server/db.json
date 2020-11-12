@@ -1,16 +1,40 @@
 {
-    "employees": [
-        {
-            "id": 1,
-            "name": "Tonynho Stark",
-            "email": "tonynho@aveng.com",
-            "phone": "15-91660-5478"
-        },
-        {
-            "id": 2,
-            "name": "Viuvinha Hulk",
-            "email": "v_hulk@aveng.com",
-            "phone": "11-98070-9090"
-        }
-    ]
+  "employees": [
+    {
+      "id": 1,
+      "name": "Tonynho Stark",
+      "email": "tonynho@aveng.com",
+      "phone": "15-91660-5478"
+    },
+    {
+      "id": 2,
+      "name": "Viuvinha Hulk",
+      "email": "v_hulk@aveng.com",
+      "phone": "11-98070-9090"
+    },
+    {
+      "name": "Luan Marreiros",
+      "email": "luan.marreiros@hotmail.com",
+      "phone": "959120905",
+      "id": 3
+    },
+    {
+      "name": "sad",
+      "email": "asdsad",
+      "phone": "23e4234",
+      "id": 5
+    },
+    {
+      "name": "teste",
+      "email": "teste",
+      "phone": "243",
+      "id": 6
+    },
+    {
+      "name": "adsadas",
+      "email": "dasdas",
+      "phone": "23",
+      "id": 7
+    }
+  ]
 }

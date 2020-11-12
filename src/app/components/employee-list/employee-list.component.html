@@ -1,1 +1,37 @@
-<p>employee-list works!</p>
+<div class="container custom-container-2">
+
+    <div class="no-data text-center" *ngIf="Employee.length == null">
+        <p>Theres no employee added yet!</p>
+        <button class="btn btn-outline-primary" routerLink="/create-employee">Add Employee</button>
+    </div>
+
+    <div *ngIf="Employee.length != null">
+        <h3 class="mb-3 text-center">Employee List</h3>
+        <div class="col-md-12">
+            <table class="table table-bordered text-center">
+                <thead>
+                    <tr>
+                        <th scope="col">User Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let employee of Employee">
+                        <td>{{employee.id}}</td>
+                        <td>{{employee.name}}</td>
+                        <td>{{employee.email}}</td>
+                        <td>{{employee.phone}}</td>
+                        <td style="cursor: pointer;">
+                            <span class="edit" routerLink="/employee-edit/{{employee.id}}">Edit</span>&nbsp;
+                            <span class="delete" (click)="deleteEmployee(employee.id)">Delete</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

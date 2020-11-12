@@ -21,12 +21,60 @@ export class RestApiService {
     })
   }
 
-  getEmployees(): Observable<Employee>{
+  getEmployees(): Observable<Employee> {
     return this.http.get<Employee>(this.url + '/employees')
-    .pipe(
-      retry(1),
-      // catchError(this.handleError)
-    )
+      .pipe(
+        retry(1),
+        catchError(this.handleError)
+      )
   }
+
+  getEmployee(id): Observable<Employee> {
+    return this.http.get<Employee>(this.url + '/employees/' + id)
+      .pipe(
+        retry(1),
+        catchError(this.handleError)
+      )
+  }
+
+  createEmployee(employee): Observable<Employee> {
+    return this.http.post<Employee>(this.url + '/employees', JSON.stringify(employee), this.httpOptions)
+      .pipe(
+        retry(1),
+        catchError(this.handleError)
+      )
+  }
+
+  updateEmployee(id, employee): Observable<Employee> {
+    return this.http.put<Employee>(this.url + '/employees/' + id,
+      JSON.stringify(employee), this.httpOptions)
+      .pipe(
+        retry(1),
+        catchError(this.handleError)
+      )
+  }
+
+  deleteEmployee(id) {
+    return this.http.delete<Employee>(this.url + '/employees/' +
+      id, this.httpOptions)
+      .pipe(
+        retry(1),
+        catchError(this.handleError)
+      )
+  }
+
+  handleError(error){
+    let errorMessage = '';
+    
+    if(error.error instanceof ErrorEvent){
+      errorMessage = error.error.message;
+    }else{
+      errorMessage = `Error Code: ${ error.status }\Message: ${ error.message }`
+    }
+
+    window.alert(errorMessage);
+    return throwError(errorMessage);
+  }
+
 
 }
